@@ -164,4 +164,4 @@ numSamples
 **Постройте график с помощью функции                                                                                                     
 plot (myTime [0: numSamples], strain [0: numSamples], type = "l", xlab = "GPS Time (s)", ylab = "H1 Strain")** 
 
-![alt text](https://github.com/Lime-Fox/Big_DataCourseKNU/blob/master/BD-LAB-3-(PIC-PLOT).png)
+![alt text](https://github.com/Lime-Fox/Big_DataCourseKNU/blob/master/BD-LAB-2-(PIC-PLOT).png)
