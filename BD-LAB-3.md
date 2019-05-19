@@ -1,25 +1,17 @@
 # **BD-LAB-3**
 
-**ОБЩАЯ ИНФОРМАЦИЯ:                                                                                                                         
-В этой лабораторной работе необходимо считать WEB страницу с сайта IMDB.com 
-со 100 фильмами 2017 выхода по ссылке:                                                                                                     
-«http://www.imdb.com/search/title?count=100&release_date=2017,2017&title_type = feature ».                                               
-Необходимо создать data.frame «movies» со следующими данными:                                                                           
-Номер фильма (rank_data)                                                                                                                 
-Название фильма (title_data)                                                                                                             
-Продолжительность (runtime_data)                                                                                                         
-Для выполнения лабораторной рекомендуется использовать библиотеку «rvest».**
-**CSS селекторы для считывания необходимых данных:                                                                                       
-rank_data «.text-primary»                                                                                                               
-title_data «.lister-item-header a»                                                                                                       
-runtime_data «.text-muted .runtime».** 
+**ОБЩАЯ ИНФОРМАЦИЯ:   
 
-**Для считывания url используется функция read_html                                                                                     
-Для считывания данных по CSS селектору - html_nodes                                                                                     
-Для преобразования считанных html данных в текст - html_text.**                                                                             
-**Рекомендуется превратить rank_data и runtime_data из текста в числовые значения.                                                         
-При формировании дата фрейма функцией data.frame рекомендуется использовать параметр «stringsAsFactors = FALSE».**
+```
+ПРЕДВАРИТЕЛЬНО:
 
+Установка и загрузка библиотек xml2 и rvest - работа с XML-файлами:
+
+install.packages('xml2')
+library('xml2')
+install.packages("rvest")
+library(rvest)
+```
 
 
 ## **TASK-1**
