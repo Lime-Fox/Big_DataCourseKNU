@@ -44,19 +44,16 @@ f.html = read_html("http://www.imdb.com/search/title?count=100&release_date=2017
 
 ```
 2. - Преобразование считанных html-данных в текст:
-     (Номер фильма и продолжительность - последующий перевод в числовой формат - as.numeric )
 
 Номер фильма:
 rank_data <- html_text(html_nodes(f.html,'.text-primary'))
 rank_data
-cor.rank_data <- as.numeric(rank_data)
-cor.rank_data
 
 Название фильма:
 title_data <- html_text(html_nodes(f.html,'.lister-item-header a'))
 title_data
 
-Продолжительность (runtime_data):  
+Продолжительность:  
 runtime_data <- html_text(html_nodes(f.html,'.text-muted .runtime'))
 runtime_data
 ```
@@ -154,7 +151,7 @@ RANK                                  TITLE    RUNTIME
 movies[1:6,]
 ```
 ```
- RANK                            TITLE   RUNTIME
+ RANK                        TITLE   RUNTIME
 1.                   Тор: Рагнарок     130
 2.                            Воно     135
 3. Людина-павук: Повернення додому     133
