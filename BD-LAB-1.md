@@ -58,7 +58,7 @@ https://www.dropbox.com/s/dijv0rlwo4mryv5/PUMSDataDict06.pdf?dl=0
 ```
 download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Fss06hid.csv","f.csv", "auto", TRUE,"wb")
 tab.data2<- read.csv("f.csv")
-#С устранением NA-значений:
+С устранением NA-значений:
 sum(tab.data2$VAL == 24, na.rm = TRUE)
 ```
 ```
