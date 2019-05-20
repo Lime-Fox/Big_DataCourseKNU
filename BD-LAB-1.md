@@ -10,13 +10,13 @@ http://data.gov.ua
 
 ```
 ПРЕДВАРИТЕЛЬНО:
-Загрузка и установка пакета - readxl - для импорта Excel-файлаов в R
+Загрузка и установка пакета - readxl - для импорта Excel-файлов в R
 insatll.packages("readxl")
 library("readxl")
 
-Загрузка и установка пакета - XML/HTML - для создания и чтения с XML/HTML-файлов
+Загрузка и установка пакета - XML/HTML - для создания и чтения XML/HTML-файлов
 install.packages("XML")
-library(XML)
+library("XML")
 ```
 ```
 СПОСОБ 1
