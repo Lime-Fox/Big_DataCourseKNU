@@ -1,0 +1,110 @@
+---
+title: "Task"
+output: md_document
+---
+Для дослідження був обраний датасет, що містить дані про якість повітря. Була застосована модель лінійної регресії.
+```{r}
+require("datasets")
+data("airquality")
+```
+
+```{r}
+head(airquality, n=3)
+```
+
+```{r}
+tail(airquality, n=3)
+```
+```{r}
+summary(airquality)
+```
+перевіряємо відсутність NaN (пустих значень)
+```{r}
+all(colSums(is.na(airquality))==0) # перевіряємо відсутність NaN (пустих значень)
+```
+Видаляємо пусті значення
+```{r}
+airquality <- na.omit(airquality)
+```
+Temp (температура) - залежна змінна. Виведемо її значення у різних квантилях (у різних місцях в датасеті)
+```{r}
+quantile(airquality$Temp, na.rm = TRUE) 
+```
+Залишемо тільки числові значення (не будемо брати до уваги день та місяць)
+```{r}
+airquality <- airquality[1:4]
+```
+
+
+```{r}
+head(airquality, n=3)
+```
+Знайдемо найбільш корельовану змінну з цільвою(Temp)
+
+```{r}
+cor(airquality)
+```
+
+Такою змінною є Ozone. Для побудови моделі лінійної регресії залишемо тільки змінні Temp та Ozone
+```{r}
+airquality <-  data.frame(airquality$Ozone,airquality$Temp)
+```
+
+```{r}
+head(airquality, n=3)
+```
+```{r}
+names(airquality) <- c('Ozone', 'Temp')
+head(airquality, n=3)
+```
+Розіб'ємо вибірку на тренувальну(навчальну) - 80% та тестову(робочу) - 20 %, 
+```{r}
+library(caTools)
+set.seed(123)
+split = sample.split(airquality$Temp, SplitRatio = 0.8)
+training_set = subset(airquality, split == TRUE)
+test_set = subset(airquality, split == FALSE)
+```
+
+Тренуємо модель
+```{r}
+regressor = lm(formula = Temp ~ Ozone,
+               data = training_set)
+```
+
+Візуалізуємо, як навчена модель робить передбачення на тренувальній вибірці.
+```{r}
+library(ggplot2)
+ggplot() + #add each component of future plot by '+'
+           # geom_point is used to drow scatter plot
+           #aes creates a list of unevaluated expression
+  geom_point(aes(x = training_set$Ozone, y = training_set$Temp),
+             colour = 'red') +
+  geom_line(aes(x = training_set$Ozone, y = predict(regressor, newdata = training_set)), # predict 
+            colour = 'blue') +
+  ggtitle('Temp vs Ozone (Training set)') +
+  xlab('Ozone') +
+  ylab('Temp')
+```
+Візуалізуємо, як навчена модель робить передбачення на тестовій вибірці.
+```{r}
+library(ggplot2)
+ggplot() + #add each component of future plot by '+'
+           # geom_point is used to drow scatter plot
+           #aes creates a list of unevaluated expression
+  geom_point(aes(x = test_set$Ozone, y = test_set$Temp),
+             colour = 'red') +
+  geom_line(aes(x = test_set$Ozone, y = predict(regressor, newdata = test_set)), 
+            colour = 'blue') +
+  ggtitle('Temp vs Ozone (Test set)') +
+  xlab('Ozone') +
+  ylab('Temp')
+```
+Значення r2 score, що характеризує точність зроблених передбачень
+```{r}
+rsq <- function (x, y) cor(x, y) ^ 2
+r2 <- rsq(predict(regressor, newdata = test_set), test_set$Temp)
+r2
+```
+
+
