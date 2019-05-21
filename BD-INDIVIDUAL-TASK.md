@@ -165,9 +165,7 @@ ggtitle('Temp vs Ozone (Training set)') +
 xlab('Ozone') +
 ylab('Temp')
 ```
-```
 ![alt text](https://github.com/Lime-Fox/Big_DataCourseKNU/blob/master/BD-INDIVIDUAL-TASK%20(LR-1).png)
-```
 
 **3.4** - Визуализация работы тестовой выборки:
 ```
@@ -179,9 +177,7 @@ ggtitle('Temp vs Ozone (Test set)') +
 xlab('Ozone') +
 ylab('Temp')
 ```
-```
 ![alt text](https://github.com/Lime-Fox/Big_DataCourseKNU/blob/master/BD-INDIVIDUAL-TASK%20(LR-2).png)
-```
 
 **3.4** - Характеристика точности сделанных прогнозов:
 ```
