@@ -166,7 +166,7 @@ xlab('Ozone') +
 ylab('Temp')
 ```
 ```
-PIC 1
+![alt text](https://github.com/Lime-Fox/Big_DataCourseKNU/blob/master/BD-INDIVIDUAL-TASK%20(LR-1).png)
 ```
 
 **3.4** - Визуализация работы тестовой выборки:
@@ -180,7 +180,7 @@ xlab('Ozone') +
 ylab('Temp')
 ```
 ```
-PIC 2
+![alt text](https://github.com/Lime-Fox/Big_DataCourseKNU/blob/master/BD-INDIVIDUAL-TASK%20(LR-2).png)
 ```
 
 **3.4** - Характеристика точности сделанных прогнозов:
