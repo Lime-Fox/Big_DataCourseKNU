@@ -27,8 +27,7 @@ head(tab.data1, n = 6)
 ```
 ```
 СПОСОБ 2
-download.file("C:\Users\USER\R-STATISTICA - DATA\NUCLEAR SAFETY-2018","f.excel","auto",TRUE,"wb")
-tab.data1<-read_xlsx("f.excel")
+tab.data1<-read_xlsx("C:\Users\USER\R-STATISTICA - DATA\NUCLEAR SAFETY-2018")
 Вывести первые 6 строк дата-фрейма:
 tab.data1[1:6,]
 ```
